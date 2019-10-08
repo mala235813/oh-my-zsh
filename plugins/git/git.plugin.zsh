@@ -225,6 +225,7 @@ alias gsps='git show --pretty=short --show-signature'
 alias gsr='git svn rebase'
 alias gss='git status -s'
 alias gst='git status'
+alias gs=gss
 
 # use the default stash push on git 2.13 and newer
 autoload -Uz is-at-least
