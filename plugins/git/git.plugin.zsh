@@ -160,6 +160,8 @@ alias gk='\gitk --all --branches'
 alias gke='\gitk --all $(git log -g --pretty=%h)'
 
 alias gpl='git pull'
+alias gl="git log --oneline --graph --pretty=format:$'\t%ad %C(green)%<(7,trunc)%h%C(reset) %C(red)%aN%C(reset) %C(blue)%<(20,trunc)%s%C(reset) %C(auto)%d%C(reset)' --date=format-local:'%Y-%m-%d %H:%M' --abbrev=4 --first-parent -n20"
+alias glm="git log --oneline --graph --pretty=format:$'\t%ad %C(green)%<(7,trunc)%h%C(reset) %C(red)%aN%C(reset) %C(blue)%<(20,trunc)%s%C(reset) %C(auto)%d%C(reset)' --branches --remotes --tags --date=format-local:'%Y-%m-%d %H:%M' --abbrev=4 -n20"
 alias glg='git log --stat'
 alias glgp='git log --stat -p'
 alias glgg='git log --graph'
