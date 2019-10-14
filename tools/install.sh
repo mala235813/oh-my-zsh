@@ -235,15 +235,6 @@ main() {
 		exit 1
 	fi
 
-	if [ -d "$ZSH" ]; then
-		cat <<-EOF
-			${YELLOW}You already have Oh My Zsh installed.${RESET}
-			You'll need to remove '$ZSH' if you want to reinstall.
-		EOF
-		exit 1
-	fi
-
-	setup_ohmyzsh
 	setup_zshrc
 	setup_shell
 
