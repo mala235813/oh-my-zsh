@@ -69,35 +69,6 @@ setup_color() {
 	fi
 }
 
-setup_ohmyzsh() {
-	# Prevent the cloned repository from having insecure permissions. Failing to do
-	# so causes compinit() calls to fail with "command not found: compdef" errors
-	# for users with insecure umasks (e.g., "002", allowing group writability). Note
-	# that this will be ignored under Cygwin by default, as Windows ACLs take
-	# precedence over umasks except for filesystems mounted with option "noacl".
-	umask g-w,o-w
-
-	echo "${BLUE}Cloning Oh My Zsh...${RESET}"
-
-	command_exists git || {
-		error "git is not installed"
-		exit 1
-	}
-
-	if [ "$OSTYPE" = cygwin ] && git --version | grep -q msysgit; then
-		error "Windows/MSYS Git is not supported on Cygwin"
-		error "Make sure the Cygwin git package is installed and is first on the \$PATH"
-		exit 1
-	fi
-
-	git clone --depth=1 --branch "$BRANCH" "$REMOTE" "$ZSH" || {
-		error "git clone of oh-my-zsh repo failed"
-		exit 1
-	}
-
-	echo
-}
-
 setup_zshrc() {
 	# Keep most recent old .zshrc at .zshrc.pre-oh-my-zsh, and older ones
 	# with datestamp of installation that moved them aside, so we never actually
